@@ -13,7 +13,7 @@ RewriteRule (.*)common/files/avatar/(.*) common/files/avatar/$2 [L]
 RewriteRule (.*)assets/(.*) frontend/web/assets/$2 [L]
 RewriteRule (.*)assets/(.*) dashboard/web/assets/$2 [L]
 RewriteRule (.*)assets/(.*) dashboard/index.php/$2 [L]
-RewriteRule [^.]*$ frontend/web/$1 [L]
+RewriteRule [^.]*$ frontend/$1 [L]
 
 </IfModule>
 #
