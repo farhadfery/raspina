@@ -72,7 +72,7 @@ Raspina::title($post->title);
                 <div class="post-text">
                     <!-- -->
                     <?php foreach ($postRelated as $related): ?>
-                        <?= Html::a($related['title'],[0 => 'post/view','id' => $related['id'],'title' => $related['title']]) ?><br>
+                        <?= Html::a($related['title'],[0 => 'post/view','id' => $related['id'],'title' => $related['slug']]) ?><br>
                     <?php endforeach ?>
                     <!-- -->
                 </div>

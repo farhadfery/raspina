@@ -2,7 +2,6 @@
 namespace dashboard\modules\post\controllers;
 
 use Yii;
-use yii\behaviors\SluggableBehavior;
 use yii\web\Controller;
 use dashboard\modules\post\models\PostSearch;
 use dashboard\modules\post\models\Post;

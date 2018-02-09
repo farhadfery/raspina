@@ -5,7 +5,7 @@ use common\models\PostTag;
 use common\models\Tag;
 use meysampg\intldate\IntlDateTrait;
 use Yii;
-use yii\behaviors\SluggableBehavior;
+use developit\slug\PesianSluggableBehavior;
 
 class Post extends \common\models\Post
 {
@@ -24,6 +24,17 @@ class Post extends \common\models\Post
 
     public $count;
     public $sum;
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => PesianSluggableBehavior::className(),
+                'attribute' => 'title',
+            ],
+        ];
+    }
+
     public function rules()
     {
         $parentRules = parent::rules();

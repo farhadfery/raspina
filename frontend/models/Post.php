@@ -108,7 +108,7 @@ class Post extends \common\models\Post
 
     public function url()
     {
-        return Url::to([0 => 'post/view','id' => $this->id,'title' => $this->title]);
+        return Url::to([0 => 'post/view','id' => $this->id,'title' => $this->slug]);
     }
 
     public function author()
