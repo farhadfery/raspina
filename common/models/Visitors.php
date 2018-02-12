@@ -102,6 +102,7 @@ class Visitors extends \yii\db\ActiveRecord
 
     public function add()
     {
+        $browser = Yii::$app->browser;
         if(!$this::isBot())
         {
             $visitor = new Visitors();

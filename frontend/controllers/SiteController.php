@@ -137,4 +137,11 @@ class SiteController extends BaseController
             'dataProvider' => $dataProvider
         ]);
     }
+
+    public function actionVisit()
+    {
+        $visitors = new \common\models\Visitors;
+        $visitors->add();
+        exit();
+    }
 }

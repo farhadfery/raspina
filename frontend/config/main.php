@@ -6,7 +6,7 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 use \yii\web\Request;
-$baseUrl = str_replace('/frontend/web', '', (new Request)->getBaseUrl());
+$baseUrl = str_replace('/frontend', '', (new Request)->getBaseUrl());
 //$baseUrl = (new Request)->getBaseUrl();
 return [
     'id' => 'app-frontend',
@@ -14,6 +14,10 @@ return [
     'bootstrap' => ['log', 'frontend\components\bootstrap\Setting'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'assetManager' => [
+            'basePath' => '@webroot/web/assets',
+            'baseUrl' => '@web/web/assets',
+        ],
         'request' => [
             'baseUrl' => $baseUrl,
             'enableCsrfValidation' => false,
@@ -82,6 +86,6 @@ return [
     ],
     'params' => $params,
     'aliases' => [
-        '@assetUrl' => (new Request)->getBaseUrl()
+        '@assetUrl' => (new Request)->getBaseUrl() . '/web'
     ]
 ];

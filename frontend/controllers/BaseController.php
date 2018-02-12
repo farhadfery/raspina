@@ -29,17 +29,4 @@ class BaseController extends Controller
     {
         return Yii::getAlias('@frontend/views/templates/') . $this->setting['template'] . '/';
     }
-
-    public function render($view, $params = [])
-    {
-        // visit +
-        $exception = Yii::$app->errorHandler->exception;
-        if(empty($exception))
-        {
-            $visitors = new \common\models\Visitors;
-            $visitors->add();
-        }
-
-        return parent::render($view,$params);
-    }
 }

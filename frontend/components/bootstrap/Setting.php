@@ -28,16 +28,6 @@ class Setting implements BootstrapInterface
         Yii::$app->hashids->salt = $settingModel->sult;
         Yii::$app->hashids->init();
 
-        if($settingModel->direction == 'rtl')
-        {
-            $app->view->registerCssFile(Yii::$app->homeUrl . 'web/css/bootstrap-rtl.min.css', ['depends' => [\dashboard\assets\AppAsset::className()]]);
-        }
-
-        if($settingModel->direction == 'rtl')
-        {
-
-        }
-
         // blog setting
         $setting = \Yii::$app->setting->get();
         # description

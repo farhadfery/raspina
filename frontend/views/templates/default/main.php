@@ -147,6 +147,16 @@ $this->beginPage();
 	<br>
 	<span><a href="http://www.developit.ir/github/raspina.html" target="_blank"><?= Raspina::t('Powered by raspina cms') ?></a></span>
 </div>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "<?= \yii\helpers\Url::base() . '/site/visit' ?>", true);
+        xmlhttp.send();
+    </script>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="<?= Raspina::templateUrl() ?>js/jquery-2.2.3.min.js"></script>
 	<script src="<?= Raspina::templateUrl() ?>js/mycode.js"></script>
