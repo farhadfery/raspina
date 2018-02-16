@@ -102,16 +102,16 @@ class Visitors extends \yii\db\ActiveRecord
 
     public function add()
     {
-        $browser = Yii::$app->browser;
+        $request = Yii::$app->request->post();
         if(!$this::isBot())
         {
             $visitor = new Visitors();
             $visitor->group_date = (new \DateTime())->format('Ymd');
             $visitor->ip = $_SERVER['REMOTE_ADDR'];
-            $visitor->location = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $visitor->location = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
             $visitor->browser = Yii::$app->browser->getBrowser() . ' ' . Yii::$app->browser->getVersion();
             $visitor->os = Yii::$app->browser->getPlatform();
-            $visitor->referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
+            $visitor->referer = isset($request['ref']) ? $request['ref'] : null;
             $visitor->save();
         }
     }
