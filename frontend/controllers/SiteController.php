@@ -103,7 +103,7 @@ class SiteController extends BaseController
 
             $catQuery = new \yii\db\Query();
             $categoryTable = \common\models\Category::tableName();
-            $catResult = $catQuery->select("id")->from("{$categoryTable}")->where(['id' => $request['category'],'title' => $request['title']])->one();
+            $catResult = $catQuery->select("id")->from("{$categoryTable}")->where(['id' => $request['category'],'slug' => $request['title']])->one();
             if(empty($catResult))
             {
                 return $this->redirect(['site/error']);

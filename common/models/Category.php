@@ -70,4 +70,19 @@ class Category extends \yii\db\ActiveRecord
     {
         return \yii\helpers\ArrayHelper::map(self::find()->all(),'id','title');
     }
+
+    public static function getCategories()
+    {
+        $categories = [];
+        foreach ((array)self::find()->all() as $k => $v)
+        {
+            $categories[] = [
+                'id' => $v['id'],
+                'title' => $v['title'],
+                'slug' => $v['slug'],
+            ];
+        }
+
+        return $categories;
+    }
 }

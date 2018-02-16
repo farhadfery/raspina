@@ -14,7 +14,7 @@ use frontend\components\helpers\Raspina;
                 <span class="post-detail">
 					<span class="fa fa-list"></span>
                     <?php foreach ($postCategories as $pc): ?>
-                        <?= Html::a($pc['category']['title'],[0 => 'site/index','category' => $pc['category']['id'],'title' => $pc['category']['title']]) ?><delimiter>،</delimiter>
+                        <?= Html::a($pc['category']['title'],[0 => 'site/index','category' => $pc['category']['id'],'title' => $pc['category']['slug']]) ?><delimiter>،</delimiter>
                     <?php endforeach ?>
 				</span>
             <?php endif ?>

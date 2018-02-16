@@ -1,13 +1,22 @@
 <?php
-
 namespace dashboard\modules\post\models;
 
-use dashboard\modules\user\models\User;
+use developit\slug\PesianSluggableBehavior;
 use Yii;
 
 
 class Category extends \common\models\Category
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => PesianSluggableBehavior::className(),
+                'attribute' => 'title',
+            ],
+        ];
+    }
+
     public function beforeValidate()
     {
         $this->created_by = Yii::$app->user->id;

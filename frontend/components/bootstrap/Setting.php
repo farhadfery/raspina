@@ -80,7 +80,7 @@ class Setting implements BootstrapInterface
         # url
         Yii::$app->view->params['url'] = $setting['url'];
         # categories
-        Yii::$app->view->params['categories'] = \common\models\Category::getAll();
+        Yii::$app->view->params['categories'] = \common\models\Category::getCategories();
         # links
         Yii::$app->view->params['links'] = \common\models\Link::find()->all();
         # model

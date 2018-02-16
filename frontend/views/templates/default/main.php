@@ -111,7 +111,7 @@ $this->beginPage();
 				<div class="menu-title-line"></div>
 				<?php foreach((array)Raspina::categories() as $id => $category): ?>
 					<div class="cat-item">
-						<?= Html::a($category,[0=> 'site/index','category'=> $id,'title'=>$category]); ?>
+						<?= Html::a($category['title'],[0=> 'site/index','category'=> $category['id'],'title'=>$category['slug']]); ?>
 					</div>
 				<?php endforeach; ?>
 			</div>
