@@ -65,7 +65,7 @@ class SiteController extends BaseController
         orderBy('p.pin_post DESC,p.id DESC')->
         where("p.status=1")->limit($this->setting['page_size'])->all();
         return $this->render('../../site/rss.php', [
-            'posts' => $posts
+            'post' => $posts
         ]);
     }
 
@@ -80,10 +80,10 @@ class SiteController extends BaseController
         $posTable = \frontend\models\Post::tableName();
         $commentTable = \frontend\models\Comment::tableName();
         $postCategoryTable = \common\models\PostCategory::tableName();
-        // update posts status
+        // update post status
         $query->createCommand()->update($posTable,['status' => 1],"status = 2 AND created_at <='" . (new \DateTime())->format('Y-m-d H:i:s'). "'")->execute();
 
-        // select posts
+        // select post
         $postModel = Post::find()
             ->alias('p')
             ->select(["p.*","COUNT(DISTINCT c.id) AS comment_count","IF(p.more_text != '','1','0') AS `more`","GROUP_CONCAT(DISTINCT pc.category_id) AS category_ids"])
@@ -133,7 +133,7 @@ class SiteController extends BaseController
             ]
         ]);
 //        var_dump($dataProvider); exit();
-        return $this->render('posts', [
+        return $this->render('post', [
             'dataProvider' => $dataProvider
         ]);
     }

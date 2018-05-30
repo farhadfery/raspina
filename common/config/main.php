@@ -1,4 +1,9 @@
 <?php
+
+//        'post' => [
+//            'class' => 'dashboard\modules\post\post',
+//        ],
+
 return [
     'name' => 'Raspina',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
@@ -96,6 +101,14 @@ return [
         ],
         'render' => [
             'class' => 'common\components\render',
+        ],
+        'urlManager' => [
+            'baseUrl' => $baseUrl21,
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'dashboard' => 'app/dashboard',
+            ]
         ],
     ],
     'aliases' => [

@@ -31,7 +31,7 @@ use yii\web\IdentityInterface;
  * @property Comment[] $comments0
  * @property File[] $files
  * @property NewsletterLog[] $newsletterLogs
- * @property Post[] $posts
+ * @property Post[] $post
  * @property Post[] $posts0
  */
 class User extends \yii\db\ActiveRecord implements IdentityInterface
