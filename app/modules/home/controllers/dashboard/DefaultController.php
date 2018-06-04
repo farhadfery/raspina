@@ -45,16 +45,7 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        exit('dashboard/post');
-        $model = new Post();
-        $searchModel = new PostSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel,
-            'model' => $model,
-        ]);
+        return $this->render('index');
     }
 
     /**

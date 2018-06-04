@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 
-use dashboard\components\widgets\ActiveForm;
+use app\components\widgets\ActiveForm;
 use yii\helpers\Html;
 
 $this->title = 'Request password reset';

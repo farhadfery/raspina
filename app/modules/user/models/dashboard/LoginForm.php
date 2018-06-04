@@ -3,7 +3,6 @@ namespace app\modules\user\models\dashboard;
 
 use Yii;
 use yii\base\Model;
-use dashboard\modules\user\models\User;
 
 /**
  * Login form

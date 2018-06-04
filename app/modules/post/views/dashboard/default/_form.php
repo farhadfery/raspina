@@ -1,6 +1,6 @@
 <?php
 use dashboard\components\helpers\Html;
-use dashboard\components\widgets\ActiveForm;
+use app\components\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
 use kartik\select2\Select2;
 use dashboard\modules\post\models\Category;

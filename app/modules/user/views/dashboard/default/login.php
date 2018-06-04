@@ -1,6 +1,6 @@
 <?php
 
-use dashboard\components\widgets\ActiveForm;
+use app\components\widgets\ActiveForm;
 use yii\helpers\Html;
 use developit\captcha\Captcha;
 
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'password')->passwordInput() ?>
 
             <?= $form->field($model,'captcha')->widget(Captcha::className(),[
-                'captchaAction' => '/site/login-captcha', 'options' => ['class' => 'form-control captcha'],
+                'captchaAction' => '/app/site/login-captcha', 'options' => ['class' => 'form-control captcha'],
                 'template' => '<div class="captcha-img">{image}</div><div class="captcha-txt">{input}</div>'
             ]) ?>
 

@@ -69,6 +69,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+
+        exit('site');
         return $this->render('index');
     }
 }

@@ -1,10 +1,10 @@
 <?php
 use yii\helpers\Html;
-use dashboard\components\widgets\ActiveForm;
+use app\components\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model dashboard\modules\post\models\Category */
-/* @var $form dashboard\components\widgets\ActiveForm */
+/* @var $form app\components\widgets\ActiveForm */
 ?>
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'title')->textInput(['maxlength' => true, 'placeholder' => $model->isNewRecord ? Yii::t('app', 'Title') : '']) ?>

@@ -1,7 +1,7 @@
 <?php
 use dashboard\components\helpers\Html;
 use dosamigos\tinymce\TinyMce;
-use dashboard\components\widgets\ActiveForm;
+use app\components\widgets\ActiveForm;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */

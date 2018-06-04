@@ -1,7 +1,7 @@
 <?php
 
 use dashboard\components\helpers\Html;
-use dashboard\components\widgets\ActiveForm;
+use app\components\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model dashboard\modules\user\models\User */

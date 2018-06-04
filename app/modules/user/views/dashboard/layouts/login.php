@@ -1,10 +1,10 @@
 <?php
-use dashboard\assets\AppAsset;
+use app\assets\DashboardAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use common\widgets\Alert;
 
-AppAsset::register($this);
+DashboardAsset::register($this);
 
 $modules_id = Yii::$app->controller->module->id;
 $controller_id = Yii::$app->controller->id;
