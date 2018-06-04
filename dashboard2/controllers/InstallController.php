@@ -87,9 +87,9 @@ class InstallController extends Controller
                 $db_config .= "define('TBL_PREFIX','{$model->tb_prefix}');\n";
                 try
                 {
-                    if(!file_exists('../common/config/db_config.php'))
+                    if(!file_exists('../common/_config/db_config.php'))
                     {
-                        file_put_contents('../common/config/db_config.php',$db_config);
+                        file_put_contents('../common/_config/db_config.php',$db_config);
                         $sql = file_get_contents(Yii::getAlias('@common/files/db/raspina.sql'));
                         $sql = str_replace('rs_', $model->tb_prefix, $sql);
                         $db->query($sql)->execute();
@@ -97,7 +97,7 @@ class InstallController extends Controller
                     }
                     else
                     {
-                        Yii::$app->session->setFlash('error', '[common/config/db_config.php] is exist. to continue, delete this file first');
+                        Yii::$app->session->setFlash('error', '[common/_config/db_config.php] is exist. to continue, delete this file first');
                     }
                 }
                 catch (\Exception $e)

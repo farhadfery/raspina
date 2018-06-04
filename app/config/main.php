@@ -1,33 +1,15 @@
 <?php
-$params = array_merge(
-    require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/../../common/config/params-local.php'),
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
-);
-
 use \yii\web\Request;
 $baseUrl = str_replace('/app', null, (new Request)->getBaseUrl());
 return [
     'id' => 'app',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'app\controllers',
-    'bootstrap' => ['log'],
-    'modules' => [
-        'home' => [
-            'class' => 'app\modules\home\home',
-        ],
-        'user' => [
-            'class' => 'app\modules\user\user',
-        ],
-        'post' => [
-            'class' => 'app\modules\post\post',
-        ],
-    ],
+    'bootstrap' => ['log', 'app\components\bootstrap\ModuleLoader'],
     'components' => [
         'assetManager' => [
             'basePath' => '@webroot/web/assets',
-            'baseUrl' => '@web/web/assets',
+            'baseUrl' => '@web/app/web/assets',
         ],
         'request' => [
             'baseUrl' => $baseUrl,
@@ -70,5 +52,5 @@ return [
             ]
         ],
     ],
-    'params' => $params,
+    'params' => [],
 ];

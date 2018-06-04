@@ -7,5 +7,5 @@ namespace tests\codeception\common\unit;
  */
 class TestCase extends \yii\codeception\TestCase
 {
-    public $appConfig = '@tests/codeception/config/common/unit.php';
+    public $appConfig = '@tests/codeception/_config/common/unit.php';
 }

@@ -19,7 +19,7 @@
  *             // list of files that should be set executable
  *         ],
  *         'setCookieValidationKey' => [
- *             // list of config files that need to be inserted with automatically generated cookie validation keys
+ *             // list of _config files that need to be inserted with automatically generated cookie validation keys
  *         ],
  *         'createSymlink' => [
  *             // list of symlinks to be created. Keys are symlinks, and values are the targets.
@@ -42,8 +42,8 @@ return [
             'tests/codeception/bin/yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/main-local.php',
-            'frontend/config/main-local.php',
+            'backend/_config/main-local.php',
+            'frontend/_config/main-local.php',
         ],
     ],
     'Production' => [
@@ -58,8 +58,8 @@ return [
             'yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/main-local.php',
-            'frontend/config/main-local.php',
+            'backend/_config/main-local.php',
+            'frontend/_config/main-local.php',
         ],
     ],
 ];

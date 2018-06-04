@@ -5,7 +5,7 @@ use dashboard\components\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 
-$this->title = 'DB config';
+$this->title = 'DB _config';
 ?>
 
 <div class="centered">

@@ -1,5 +1,5 @@
 <?php
-if(file_exists(Yii::getAlias('@common/config/db_config.php')))
+if(file_exists(Yii::getAlias('@common/_config/db_config.php')))
 {
     require 'db_config.php';
     return [
