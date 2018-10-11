@@ -10,7 +10,7 @@ defined('FRONTEND_ENTRY_FILE') or define('FRONTEND_ENTRY_FILE', YII_APP_BASE_PAT
 require_once(YII_APP_BASE_PATH . '/vendor/autoload.php');
 require_once(YII_APP_BASE_PATH . '/vendor/yiisoft/yii2/Yii.php');
 require_once(YII_APP_BASE_PATH . '/common/_config/bootstrap.php');
-require_once(YII_APP_BASE_PATH . '/frontend/config/bootstrap.php');
+require_once(YII_APP_BASE_PATH . '/frontend2/config/bootstrap.php');
 
 // set correct script paths
 

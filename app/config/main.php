@@ -33,7 +33,7 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            'baseUrl' => $baseUrl,
+            'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
@@ -41,14 +41,14 @@ return [
                     'pattern' => '<app>/<module>',
                     'route' => '<module>',
                 ],
-                [
-                    'pattern' => '<app>/<module>/<controller>',
-                    'route' => '<module>/<controller>',
-                ],
-                [
-                    'pattern' => '<app>/<module>/<controller>/<action>',
-                    'route' => '<module>/<controller>/<action>',
-                ],
+//                [
+//                    'pattern' => '<app>/<module>/<controller>',
+//                    'route' => '<module>/<controller>',
+//                ],
+//                [
+//                    'pattern' => '<app>/<module>/<controller>/<action>',
+//                    'route' => '<module>/<controller>/<action>',
+//                ],
             ]
         ],
     ],

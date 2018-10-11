@@ -103,7 +103,7 @@ return [
             'class' => 'common\components\render',
         ],
         'urlManager' => [
-            'baseUrl' => $baseUrl21,
+//            'baseUrl' => $baseUrl,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
