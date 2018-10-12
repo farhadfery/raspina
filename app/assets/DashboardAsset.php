@@ -16,7 +16,7 @@ use yii\web\AssetBundle;
 class DashboardAsset extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web/web';
+    public $baseUrl = '@web/app/web';
 
     public $css = [
         'css/reset.css',

@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'password')->passwordInput() ?>
 
             <?= $form->field($model,'captcha')->widget(Captcha::className(),[
-                'captchaAction' => '/app/site/login-captcha', 'options' => ['class' => 'form-control captcha'],
+                'captchaAction' => '/dashboard/site/captcha', 'options' => ['class' => 'form-control captcha'],
                 'template' => '<div class="captcha-img">{image}</div><div class="captcha-txt">{input}</div>'
             ]) ?>
 

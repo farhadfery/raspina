@@ -1,5 +1,5 @@
 <?php
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 use dosamigos\tinymce\TinyMce;
 use app\components\widgets\ActiveForm;
 use yii\widgets\DetailView;

@@ -1,6 +1,6 @@
 <?php
 
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 use dosamigos\tinymce\TinyMce;
 use yii\widgets\ActiveForm;
 

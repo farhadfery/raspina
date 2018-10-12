@@ -1,10 +1,10 @@
 <?php
 namespace app\modules\post\controllers\dashboard;
 
+use app\modules\post\models\dashboard\Post;
+use app\modules\post\models\dashboard\PostSearch;
 use Yii;
 use yii\web\Controller;
-use dashboard\modules\post\models\PostSearch;
-use dashboard\modules\post\models\Post;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -45,7 +45,6 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        exit('dashboard/post');
         $model = new Post();
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);

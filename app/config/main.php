@@ -33,22 +33,30 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            'baseUrl' => '/',
+            'baseUrl' => $baseUrl,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 [
+                    'pattern' => '<app>/site/captcha',
+                    'route' => 'site/captcha',
+                ],
+                [
                     'pattern' => '<app>/<module>',
                     'route' => '<module>',
                 ],
-//                [
-//                    'pattern' => '<app>/<module>/<controller>',
-//                    'route' => '<module>/<controller>',
-//                ],
-//                [
-//                    'pattern' => '<app>/<module>/<controller>/<action>',
-//                    'route' => '<module>/<controller>/<action>',
-//                ],
+                [
+                    'pattern' => '<app>/<module>/<action>',
+                    'route' => '<module>/default/<action>',
+                ],
+                [
+                    'pattern' => '<app>/<module>/<controller>',
+                    'route' => '<module>/<controller>',
+                ],
+                [
+                    'pattern' => '<app>/<module>/<controller>/<action>',
+                    'route' => '<module>/<controller>/<action>',
+                ],
             ]
         ],
     ],

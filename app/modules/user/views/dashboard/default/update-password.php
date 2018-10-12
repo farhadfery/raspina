@@ -1,6 +1,6 @@
 <?php
 
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 use app\components\widgets\ActiveForm;
 
 /* @var $this yii\web\View */

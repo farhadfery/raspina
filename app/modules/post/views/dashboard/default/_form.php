@@ -1,5 +1,5 @@
 <?php
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 use app\components\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
 use kartik\select2\Select2;

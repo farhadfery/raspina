@@ -42,7 +42,7 @@ class SiteController extends Controller
 //                'minLength' => 4,
 //                'maxLength' => 4,
 //            ],
-            'login-captcha' => [
+            'captcha' => [
                 'class' => 'developit\captcha\CaptchaAction',
                 'type' => 'numbers',
 //                'width' => '120',
@@ -55,22 +55,20 @@ class SiteController extends Controller
         ];
     }
 
-//    public function beforeAction($action)
-//    {
-//        if ($action->id == 'error')
-//        {
-//            if (Yii::$app->user->isGuest)
-//            {
-//                return Yii::$app->getResponse()->redirect(Url::to(\Yii::$app->getUser()->loginUrl))->send();
-//            }
-//        }
-//        return parent::beforeAction($action);
-//    }
+    public function beforeAction($action)
+    {
+        if ($action->id == 'error')
+        {
+            if (Yii::$app->user->isGuest)
+            {
+                return Yii::$app->getResponse()->redirect(Url::to(\Yii::$app->getUser()->loginUrl))->send();
+            }
+        }
+        return parent::beforeAction($action);
+    }
 
     public function actionIndex()
     {
-
-        exit('site');
         return $this->render('index');
     }
 }

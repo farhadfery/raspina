@@ -1,6 +1,6 @@
 <?php
 use yii\grid\GridView;
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $model dashboard\modules\post\models\Category */
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => 'title',
             ],
             [
-                'class' => \dashboard\components\grid\ActionColumn::className(),
+                'class' => \app\components\grid\ActionColumn::className(),
                 'contentOptions' => ['class' => 'action-column fit'],
                 'headerOptions' => ['class'=>'fit'],
                 'template' => '{update} {delete}'

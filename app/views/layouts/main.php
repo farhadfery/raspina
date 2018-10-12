@@ -1,15 +1,14 @@
 <?php
-
-use dashboard\assets\AppAsset;
-use dashboard\modules\user\models\User;
+use app\assets\DashboardAsset;
+use app\modules\user\models\dashboard\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
-use dashboard\modules\post\models\Comment;
+use app\modules\post\models\dashboard\Comment;
 use dashboard\modules\contact\models\Contact;
 
-//AppAsset::register($this);
+DashboardAsset::register($this);
 
 $modules_id = Yii::$app->controller->module->id;
 $controller_id = Yii::$app->controller->id;
@@ -38,8 +37,154 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
     </head>
     <body>
     <?php $this->beginBody() ?>
-    <h1>Main Page</h1>
-    <?= $content ?>
+    <div class="header">
+        <div class="header-split" style="float: left; margin-top: 18px;">
+            <div class="raspina-logo"><?= Html::a('RS', ['/']) ?></div>
+        </div>
+
+        <div class="header-split" style="margin-top: 8px;">
+            <div class="dropdown">
+                <img class="user-profile dropdown-toggle" data-toggle="dropdown" src="<?= User::getAvatar(Yii::$app->user->id); ?>">
+                <ul class="dropdown-menu dropdown-menu-right raspina-profile ">
+                    <div class="user-profile-h" style="">
+                        <a href="<?= Url::base(); ?>/user/default/avatar"><img class="user-profile-big" src="<?= User::getAvatar(Yii::$app->user->id); ?>"></a>
+                        <div class="user-profile-name"><?= Yii::$app->user->identity->last_name ?> <?= Yii::$app->user->identity->surname ?></div>
+                        <div class="user-profile-name"><?= Yii::$app->user->identity->email ?></div>
+                        <div><?= Html::a(Yii::t('app', 'My profile'), ['/user/default/profile'], ['class' => 'btn-sm btn-info user-profile-a']) ?></div>
+                        <div style="margin-bottom: 8px;"><?= Html::a(Yii::t('app', 'Logout'), ['/user/default/logout'], ['class' => 'btn-sm btn-warning user-profile-a']) ?></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="header-split">
+            <div class="dropdown">
+                <span class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></span>
+                <ul class="dropdown-menu dropdown-menu-right raspina-menu">
+
+                    <?php if (Yii::$app->user->can('post')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/post">
+                                <div><span class="fa fa-file-text"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Posts') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->user->can('category')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/post/category/index">
+                                <div><span class="fa fa-book"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Categories') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->user->can('file')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/file">
+                                <div><span class="fa fa-upload"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Files') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->user->can('newsletter')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/newsletter">
+                                <div><span class="fa fa-paper-plane"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Newsletter') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->user->can('link')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/link">
+                                <div><span class="fa fa-link"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Links') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->user->can('statistics')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/statistics">
+                                <div><span class="fa fa-line-chart"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Statistics') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->user->can('user')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/user">
+                                <div><span class="fa fa-user"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Users') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->user->can('Template')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/template">
+                                <div><span class="fa fa-file-code-o"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Template') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->user->can('settings')): ?>
+                        <li><a href="<?= Url::base(); ?>/dashboard/setting/default/update">
+                                <div><span class="fa fa-cog"></span></div>
+                                <div class="menu-title"><?= Yii::t('app', 'Settings') ?></div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+
+        <?php if (Yii::$app->user->can('comment')): ?>
+            <div class="header-split">
+                <a href="<?= Url::base() . '/post/comment'; ?>">
+                    <span class="fa fa-comments" aria-hidden="true"></span>
+                    <?php
+                    $notApprovedCount = Comment::getNotApprovedCount();
+                    if ($notApprovedCount):
+                        ?>
+                        <span class="alert-count"><?= $notApprovedCount ?></span>
+                    <?php endif; ?>
+
+                </a>
+            </div>
+        <?php endif; ?>
+<!--        --><?php //if (Yii::$app->user->can('contact')): ?>
+<!--            <div class="header-split">-->
+<!--                <a href="--><?//= Url::base() . '/contact'; ?><!--">-->
+<!--                    <span class="fa fa-envelope" aria-hidden="true"></span>-->
+<!--                    --><?php
+//                    $notViewedCount = Contact::getNotViewedCount();
+//                    if ($notViewedCount):
+//                        ?>
+<!--                        <span class="alert-count">--><?//= $notViewedCount ?><!--</span>-->
+<!--                    --><?php //endif; ?>
+<!--                </a>-->
+<!--            </div>-->
+<!--        --><?php //endif; ?>
+    </div>
+
+
+    <?php $pos = "{$modules_id}/{$controller_id}/{$action_id}"; if ($pos == 'app-dashboard/site/index' || $pos == 'post/default/index'): ?>
+        <a href="<?= Url::base() . '/post/default/create'; ?>">
+            <div class="pen">
+                <img class="pen-icon" src="<?= Yii::$app->setting->getValue('url') ?>/dashboard/web/img/pen.svg">
+            </div>
+        </a>
+    <?php endif; ?>
+
+    <div class="pull-left main-content">
+        <div class="col-md-12">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= Alert::widget() ?>
+        </div>
+        <?= $content ?>
+    </div>
+
     <?php $this->endBody() ?>
     </body>
     </html>

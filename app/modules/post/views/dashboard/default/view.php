@@ -1,5 +1,5 @@
 <?php
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 
 $this->registerCssFile(Yii::$app->homeUrl . 'web/css/prism.css');
 $this->registerJsFile( '@web/web/js/prism.js');

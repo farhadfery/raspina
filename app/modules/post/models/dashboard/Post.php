@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\post\models\dashboard;
+namespace app\modules\post\models\dashboard;
 use common\models\PostTag;
 use common\models\Tag;
 use meysampg\intldate\IntlDateTrait;

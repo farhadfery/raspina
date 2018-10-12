@@ -1,8 +1,8 @@
 <?php
-namespace modules\post\controllers\dashboard;
+namespace app\modules\post\controllers\dashboard;
 
 use Yii;
-use dashboard\modules\post\models\Category;
+use app\modules\post\models\dashboard\Category;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;

@@ -1,6 +1,6 @@
 <?php
 
-namespace dashboard\modules\user\models;
+namespace app\modules\user\models;
 
 use Yii;
 

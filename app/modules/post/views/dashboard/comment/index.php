@@ -1,5 +1,5 @@
 <?php
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
@@ -79,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['class' => 'auto-fit center ltr'],
             ],
             [
-                'class' => \dashboard\components\grid\ActionColumn::className(),
+                'class' => \app\components\grid\ActionColumn::className(),
                 'contentOptions' => ['class' => 'action-column auto-fit'],
                 'headerOptions' => ['class'=>'auto-fit'],
                 'template' => '{view} {delete}'

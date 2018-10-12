@@ -1,11 +1,10 @@
 <?php
-namespace modules\post\models\dashboard;
+namespace app\modules\post\models\dashboard;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use dashboard\modules\post\models\Post;
-
+use app\modules\post\models\dashboard\Post;
 /**
  * PostSearch represents the model behind the search form about `dashboard\models\Post`.
  */

@@ -1,5 +1,5 @@
 <?php
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 use app\components\widgets\ActiveForm;
 use developit\jcrop\Jcrop;
 use yii\helpers\Url;

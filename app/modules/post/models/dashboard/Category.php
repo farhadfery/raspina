@@ -1,5 +1,5 @@
 <?php
-namespace modules\post\models\dashboard;
+namespace app\modules\post\models\dashboard;
 
 use developit\slug\PesianSluggableBehavior;
 use Yii;

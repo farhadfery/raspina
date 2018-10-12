@@ -1,6 +1,6 @@
 <?php
 use yii\grid\GridView;
-use dashboard\components\helpers\Html;
+use app\components\helpers\Html;
 
 /* @var $model dashboard\modules\post\models\Post */
 
@@ -56,7 +56,7 @@ $postStatus = $model->postStatus();
             'contentOptions' => ['class' => 'auto-fit center ltr'],
         ],
         [
-            'class' => \dashboard\components\grid\ActionColumn::className(),
+            'class' => \app\components\grid\ActionColumn::className(),
             'headerOptions' => ['class'=>'auto-fit'],
             'filterOptions' => ['class'=>'auto-fit'],
             'contentOptions' => ['class' => 'action-column auto-fit'],
