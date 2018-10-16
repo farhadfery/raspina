@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace app\modules\post\models\base;
 
 use Yii;
 
@@ -14,7 +14,7 @@ use Yii;
  * @property Post $post
  * @property Tag $tag
  */
-class PostTag extends \yii\db\ActiveRecord
+class PostTag extends \common\components\Model
 {
     /**
      * @inheritdoc

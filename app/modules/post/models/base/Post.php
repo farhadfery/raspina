@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace app\modules\post\models\base;
 
 use Yii;
 use yii\behaviors\SluggableBehavior;
@@ -30,7 +30,7 @@ use yii\db\ActiveQuery;
  * @property PostCategory[] $postCategories
  * @property PostTag[] $postTags
  */
-class Post extends \yii\db\ActiveRecord
+class Post extends \common\components\Model
 {
     /**
      * @inheritdoc

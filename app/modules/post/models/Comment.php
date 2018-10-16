@@ -1,9 +1,9 @@
 <?php
-namespace app\modules\post\models\dashboard;
+namespace app\modules\post\models;
 
 use Yii;
 
-class Comment extends \common\models\Comment
+class Comment extends \app\modules\post\models\base\Comment
 {
     public $post_title;
 

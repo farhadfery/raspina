@@ -1,11 +1,11 @@
 <?php
-namespace app\modules\post\models\dashboard;
+namespace app\modules\post\models;
 
 use developit\slug\PesianSluggableBehavior;
 use Yii;
 
 
-class Category extends \common\models\Category
+class Category extends \app\modules\post\models\base\Category
 {
     public function behaviors()
     {

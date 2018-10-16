@@ -1,10 +1,9 @@
 <?php
 namespace app\modules\post\controllers\dashboard;
 
-use app\modules\post\models\dashboard\Post;
-use app\modules\post\models\dashboard\PostSearch;
+use app\modules\post\models\Post;
+use app\modules\post\models\PostSearch;
 use Yii;
-use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,7 +12,7 @@ use yii\filters\AccessControl;
 /**
  * Default controller for the `posts` module
  */
-class DefaultController extends Controller
+class DefaultController extends \common\components\Controller
 {
 
     public function behaviors()

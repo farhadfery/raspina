@@ -137,20 +137,20 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
             </div>
         </div>
 
-        <?php if (Yii::$app->user->can('comment')): ?>
-            <div class="header-split">
-                <a href="<?= Url::base() . '/post/comment'; ?>">
-                    <span class="fa fa-comments" aria-hidden="true"></span>
-                    <?php
-                    $notApprovedCount = Comment::getNotApprovedCount();
-                    if ($notApprovedCount):
-                        ?>
-                        <span class="alert-count"><?= $notApprovedCount ?></span>
-                    <?php endif; ?>
-
-                </a>
-            </div>
-        <?php endif; ?>
+<!--        --><?php //if (Yii::$app->user->can('comment')): ?>
+<!--            <div class="header-split">-->
+<!--                <a href="--><?//= Url::base() . '/post/comment'; ?><!--">-->
+<!--                    <span class="fa fa-comments" aria-hidden="true"></span>-->
+<!--                    --><?php
+//                    $notApprovedCount = Comment::getNotApprovedCount();
+//                    if ($notApprovedCount):
+//                        ?>
+<!--                        <span class="alert-count">--><?//= $notApprovedCount ?><!--</span>-->
+<!--                    --><?php //endif; ?>
+<!---->
+<!--                </a>-->
+<!--            </div>-->
+<!--        --><?php //endif; ?>
 <!--        --><?php //if (Yii::$app->user->can('contact')): ?>
 <!--            <div class="header-split">-->
 <!--                <a href="--><?//= Url::base() . '/contact'; ?><!--">-->

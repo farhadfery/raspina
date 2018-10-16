@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace app\modules\post\models\base;
 
 use Yii;
 
@@ -24,7 +24,7 @@ use Yii;
  * @property User $updatedBy
  * @property Post $post
  */
-class Comment extends \yii\db\ActiveRecord
+class Comment extends \common\components\Model
 {
     /**
      * @inheritdoc

@@ -1,6 +1,7 @@
 <?php
+
+use app\components\widgets\ActiveForm;
 use yii\helpers\Html;
-use dashboard\components\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model dashboard\modules\link\models\Link */

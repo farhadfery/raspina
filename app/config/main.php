@@ -5,7 +5,7 @@ return [
     'id' => 'app',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'app\controllers',
-    'bootstrap' => ['log', 'app\components\bootstrap\ModuleLoader'],
+    'bootstrap' => ['log', 'app\components\bootstrap\ModuleLoader', 'app\components\bootstrap\Setting'],
     'components' => [
         'assetManager' => [
             'basePath' => '@webroot/web/assets',
@@ -37,22 +37,22 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                [
-                    'pattern' => '<app>/site/captcha',
-                    'route' => 'site/captcha',
-                ],
-                [
-                    'pattern' => '<app>/<module>',
-                    'route' => '<module>',
-                ],
-                [
-                    'pattern' => '<app>/<module>/<action>',
-                    'route' => '<module>/default/<action>',
-                ],
-                [
-                    'pattern' => '<app>/<module>/<controller>',
-                    'route' => '<module>/<controller>',
-                ],
+//                [
+//                    'pattern' => '<app>/site/captcha',
+//                    'route' => 'site/captcha',
+//                ],
+//                [
+//                    'pattern' => '<app>/<module>',
+//                    'route' => '<module>',
+//                ],
+//                [
+//                    'pattern' => '<app>/<module>/<action>',
+//                    'route' => '<module>/default/<action>',
+//                ],
+//                [
+//                    'pattern' => '<app>/<module>/<controller>',
+//                    'route' => '<module>/<controller>',
+//                ],
                 [
                     'pattern' => '<app>/<module>/<controller>/<action>',
                     'route' => '<module>/<controller>/<action>',

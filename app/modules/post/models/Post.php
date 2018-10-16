@@ -1,13 +1,12 @@
 <?php
-
-namespace app\modules\post\models\dashboard;
+namespace app\modules\post\models;
 use common\models\PostTag;
 use common\models\Tag;
 use meysampg\intldate\IntlDateTrait;
 use Yii;
 use developit\slug\PesianSluggableBehavior;
 
-class Post extends \common\models\Post
+class Post extends \app\modules\post\models\base\Post
 {
     use IntlDateTrait;
     /**

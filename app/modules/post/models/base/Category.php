@@ -1,7 +1,8 @@
 <?php
 
-namespace common\models;
+namespace app\modules\post\models\base;
 
+use app\modules\user\models\dashboard\User;
 use Yii;
 
 /**
@@ -14,7 +15,7 @@ use Yii;
  * @property User $createdBy
  * @property PostCategory[] $postCategories
  */
-class Category extends \yii\db\ActiveRecord
+class Category extends \common\components\Model
 {
     /**
      * @inheritdoc

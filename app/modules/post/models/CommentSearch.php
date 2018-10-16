@@ -1,5 +1,5 @@
 <?php
-namespace app\modules\post\models\dashboard;
+namespace app\modules\post\models;
 
 use Yii;
 use yii\base\Model;

@@ -1,8 +1,8 @@
 <?php
 namespace app\modules\link\controllers\dashboard;
 
+use common\models\Link;
 use Yii;
-use dashboard\modules\link\models\Link;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

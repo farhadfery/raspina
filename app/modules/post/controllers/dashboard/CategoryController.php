@@ -2,7 +2,7 @@
 namespace app\modules\post\controllers\dashboard;
 
 use Yii;
-use app\modules\post\models\dashboard\Category;
+use app\modules\post\models\Category;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;

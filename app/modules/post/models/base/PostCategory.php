@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace app\modules\post\models\base;
 
 use Yii;
 
@@ -14,7 +14,7 @@ use Yii;
  * @property Post $post
  * @property Category $category
  */
-class PostCategory extends \yii\db\ActiveRecord
+class PostCategory extends \common\components\Model
 {
     /**
      * @inheritdoc
