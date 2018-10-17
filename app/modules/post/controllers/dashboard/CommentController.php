@@ -1,10 +1,9 @@
 <?php
-namespace modules\post\controllers\dashboard;
+namespace app\modules\post\controllers\dashboard;
 
+use app\modules\post\models\Comment;
+use app\modules\post\models\CommentSearch;
 use Yii;
-use dashboard\modules\post\models\Comment;
-use dashboard\modules\post\models\CommentSearch;
-use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,7 +12,7 @@ use yii\filters\AccessControl;
 /**
  * CommentController implements the CRUD actions for Comment model.
  */
-class CommentController extends Controller
+class CommentController extends \common\components\Controller
 {
     public function behaviors()
     {

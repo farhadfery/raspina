@@ -1,10 +1,12 @@
 <?php
 use app\components\helpers\Html;
 use app\components\widgets\ActiveForm;
+use app\modules\post\models\Category;
+use app\modules\post\models\PostCategory;
+use app\modules\post\models\Tag;
 use dosamigos\tinymce\TinyMce;
 use kartik\select2\Select2;
-use dashboard\modules\post\models\Category;
-use dashboard\modules\post\models\PostCategory;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model dashboard\modules\post\models\Post */
@@ -31,7 +33,7 @@ use dashboard\modules\post\models\PostCategory;
         'options' => ['rows' => 20],
         'language' =>  Yii::$app->params['lang'],
         'clientOptions' => [
-            'content_css' => \yii\helpers\Url::to(['/web/css/tinymce.css']),
+            'content_css' => Url::to(['/web/css/tinymce.css']),
             'directionality' => Yii::$app->params['direction'],
             'entity_encoding' => "utf-8",
             'relative_urls' => false,
@@ -54,7 +56,7 @@ use dashboard\modules\post\models\PostCategory;
             'language' => Yii::$app->params['lang'],
             'clientOptions' => [
                 'directionality' => Yii::$app->params['direction'],
-                'content_css' => \yii\helpers\Url::to(['/web/css/tinymce.css']),
+                'content_css' => Url::to(['/web/css/tinymce.css']),
                 'relative_urls' => false,
                 'entity_encoding' => "utf-8",
                 'menubar' => false,
@@ -68,7 +70,7 @@ use dashboard\modules\post\models\PostCategory;
 
     <?php
     $tags = $model->getSelectedTags();
-    $allTags = \common\models\Tag::getAll();
+    $allTags = Tag::getAll();
     echo Select2::widget([
         'name' => 'tags',
         'id' => 'post_tags',

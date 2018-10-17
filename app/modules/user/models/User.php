@@ -1,11 +1,11 @@
 <?php
-namespace app\modules\user\models\dashboard;
+namespace app\modules\user\models;
 
 use Yii;
 use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 
-class User extends \common\models\User implements IdentityInterface
+class User extends \app\modules\user\models\base\User implements IdentityInterface
 {
     public $password;
     public $old_password;
@@ -97,4 +97,33 @@ class User extends \common\models\User implements IdentityInterface
         }
     }
 
+    public function avatar()
+    {
+        return self::getAvatar($this->id);
+    }
+
+    public function name()
+    {
+        return "{$this->last_name} {$this->surname}";
+    }
+
+    public function about()
+    {
+        return $this->about_text;
+    }
+
+    public static function getAvatar($userId)
+    {
+        $baseUrl = Yii::$app->setting->getValue('url') . 'common/files/avatar/';
+        $avatarPath = Yii::getAlias('@user_avatar') . DIRECTORY_SEPARATOR . Yii::$app->hashids->encode($userId) . '.jpg';
+
+        if(file_exists($avatarPath))
+        {
+            return $baseUrl . Yii::$app->hashids->encode(Yii::$app->user->id) . '.jpg?' . microtime();
+        }
+        else
+        {
+            return $baseUrl . 'default.jpg';
+        }
+    }
 }

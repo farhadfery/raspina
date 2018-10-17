@@ -2,7 +2,7 @@
 
 namespace app\modules\post\models\base;
 
-use app\modules\user\models\dashboard\User;
+use app\modules\user\models\User;
 use Yii;
 
 /**

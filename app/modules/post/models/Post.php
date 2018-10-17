@@ -1,6 +1,6 @@
 <?php
 namespace app\modules\post\models;
-use common\models\PostTag;
+use app\modules\post\models\base\PostTag;
 use common\models\Tag;
 use meysampg\intldate\IntlDateTrait;
 use Yii;

@@ -4,7 +4,6 @@ namespace app\modules\post\controllers\dashboard;
 use Yii;
 use app\modules\post\models\Category;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,7 +12,7 @@ use yii\filters\AccessControl;
 /**
  * CategoryController implements the CRUD actions for Category model.
  */
-class CategoryController extends Controller
+class CategoryController extends \common\components\Controller
 {
     public function behaviors()
     {

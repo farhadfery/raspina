@@ -2,6 +2,7 @@
 
 namespace app\modules\post\models\base;
 
+use app\modules\user\models\User;
 use Yii;
 use yii\behaviors\SluggableBehavior;
 use yii\db\ActiveQuery;

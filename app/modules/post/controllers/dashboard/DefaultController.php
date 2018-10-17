@@ -18,17 +18,17 @@ class DefaultController extends \common\components\Controller
     public function behaviors()
     {
         return [
-//            'access' => [
-//                'class' => AccessControl::className(),
-//                'only' => ['index','create','update','delete','view'],
-//                'rules' => [
-//                    [
-//                        'actions' => ['index','create','update','delete','view'],
-//                        'allow' => true,
-//                        'roles' => ['author', 'moderator', 'admin'],
-//                    ]
-//                ],
-//            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index','create','update','delete','view'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete','view'],
+                        'allow' => true,
+                        'roles' => ['author', 'moderator', 'admin'],
+                    ]
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

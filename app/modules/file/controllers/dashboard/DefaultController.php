@@ -2,8 +2,6 @@
 namespace app\modules\file\controllers\dashboard;
 
 use Yii;
-use dashboard\modules\file\models\File;
-use dashboard\modules\file\models\FileSearch;
 use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

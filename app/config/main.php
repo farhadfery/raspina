@@ -16,7 +16,7 @@ return [
             'enableCsrfValidation' => false,
         ],
         'user' => [
-            'identityClass' => 'app\modules\user\models\dashboard\User',
+            'identityClass' => 'app\modules\user\models\User',
             'enableAutoLogin' => true,
             'loginUrl' => ['user/default/login'],
         ],
@@ -37,22 +37,22 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-//                [
-//                    'pattern' => '<app>/site/captcha',
-//                    'route' => 'site/captcha',
-//                ],
-//                [
-//                    'pattern' => '<app>/<module>',
-//                    'route' => '<module>',
-//                ],
-//                [
-//                    'pattern' => '<app>/<module>/<action>',
-//                    'route' => '<module>/default/<action>',
-//                ],
-//                [
-//                    'pattern' => '<app>/<module>/<controller>',
-//                    'route' => '<module>/<controller>',
-//                ],
+                [
+                    'pattern' => '<app>/site/captcha',
+                    'route' => 'site/captcha',
+                ],
+                [
+                    'pattern' => '<app>/<module>',
+                    'route' => '<module>',
+                ],
+                [
+                    'pattern' => '<app>/<module>/<action>',
+                    'route' => '<module>/default/<action>',
+                ],
+                [
+                    'pattern' => '<app>/<module>/<controller>',
+                    'route' => '<module>/<controller>',
+                ],
                 [
                     'pattern' => '<app>/<module>/<controller>/<action>',
                     'route' => '<module>/<controller>/<action>',

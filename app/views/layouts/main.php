@@ -1,11 +1,10 @@
 <?php
 use app\assets\DashboardAsset;
-use app\modules\user\models\dashboard\User;
+use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
-use app\modules\post\models\dashboard\Comment;
 use dashboard\modules\contact\models\Contact;
 
 DashboardAsset::register($this);
