@@ -1,10 +1,9 @@
 <?php
 namespace app\modules\statistics\models;
 
-use dashboard\models\Setting;
-use dashboard\modules\post\models\Category;
-use dashboard\modules\post\models\Post;
-use dashboard\modules\post\models\PostCategory;
+use app\modules\post\models\Category;
+use app\modules\post\models\Post;
+use app\modules\post\models\PostCategory;
 use Yii;
 use yii\data\ActiveDataProvider;
 

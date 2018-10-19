@@ -11,16 +11,8 @@ use Yii;
  * @property string $email
  * @property string $registered_at
  */
-class Newsletter extends \common\models\Newsletter
+class Newsletter extends \app\modules\newsletter\models\base\Newsletter
 {
-    /**
-     * @inheritdoc
-     */
-    public static function tableName()
-    {
-        return '{{%newsletter}}';
-    }
-
     /**
      * @inheritdoc
      */

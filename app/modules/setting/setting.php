@@ -5,13 +5,8 @@ namespace app\modules\setting;
 /**
  * setting module definition class
  */
-class setting extends \yii\base\Module
+class setting extends \common\components\Module
 {
-    /**
-     * @inheritdoc
-     */
-    public $controllerNamespace = 'dashboard\modules\setting\controllers';
-
     /**
      * @inheritdoc
      */

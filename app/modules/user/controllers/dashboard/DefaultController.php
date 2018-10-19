@@ -2,13 +2,13 @@
 
 namespace app\modules\user\controllers\dashboard;
 
-use app\modules\user\models\dashboard\User;
-use dashboard\models\PasswordResetRequestForm;
-use dashboard\models\ResetPasswordForm;
-use dashboard\modules\file\models\File;
-use dashboard\modules\post\models\Comment;
-use dashboard\modules\post\models\Post;
-use dashboard\modules\user\models\AuthAssignment;
+use app\modules\user\models\User;
+use app\modules\user\models\PasswordResetRequestForm;
+use app\modules\user\models\ResetPasswordForm;
+use app\modules\file\models\File;
+use app\modules\post\models\Comment;
+use app\modules\post\models\Post;
+use app\modules\user\models\AuthAssignment;
 use app\modules\user\models\dashboard\LoginForm;
 use Yii;
 use yii\base\Controller;
@@ -23,7 +23,7 @@ use yii\filters\VerbFilter;
 /**
  * DefaultController implements the CRUD actions for User model.
  */
-class DefaultController extends Controller
+class DefaultController extends \common\components\Controller
 {
     /**
      * @inheritdoc

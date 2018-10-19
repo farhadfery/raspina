@@ -1,9 +1,10 @@
 <?php
 namespace app\modules\file\controllers\dashboard;
 
+use app\modules\file\models\File;
+use app\modules\file\models\FileSearch;
 use Yii;
 use yii\db\Query;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -12,7 +13,7 @@ use yii\filters\AccessControl;
 /**
  * Default controller for the `file` module
  */
-class DefaultController extends Controller
+class DefaultController extends \common\components\Controller
 {
     public function behaviors()
     {

@@ -2,11 +2,10 @@
 
 namespace app\modules\newsletter\controllers\dashboard;
 
-use dashboard\modules\newsletter\models\NewsletterLog;
+use app\modules\newsletter\models\Newsletter;
+use app\modules\newsletter\models\NewsletterLog;
+use app\modules\newsletter\models\NewsletterSearch;
 use Yii;
-use dashboard\modules\newsletter\models\Newsletter;
-use dashboard\modules\newsletter\models\NewsletterSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -16,7 +15,7 @@ use yii\data\ActiveDataProvider;
 /**
  * NewsletterController implements the CRUD actions for Newsletter model.
  */
-class DefaultController extends Controller
+class DefaultController extends \common\components\Controller
 {
 
     public function behaviors()

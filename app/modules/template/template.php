@@ -5,13 +5,8 @@ namespace app\modules\template;
 /**
  * template module definition class
  */
-class template extends \yii\base\Module
+class template extends \common\components\Module
 {
-    /**
-     * @inheritdoc
-     */
-    public $controllerNamespace = 'dashboard\modules\template\controllers';
-
     /**
      * @inheritdoc
      */

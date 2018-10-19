@@ -1,7 +1,7 @@
 <?php
 namespace app\modules\file\models;
 
-use dashboard\modules\user\models\User;
+use app\modules\user\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

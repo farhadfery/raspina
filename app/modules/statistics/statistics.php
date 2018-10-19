@@ -5,13 +5,8 @@ namespace app\modules\statistics;
 /**
  * statistics module definition class
  */
-class statistics extends \yii\base\Module
+class statistics extends \common\components\Module
 {
-    /**
-     * @inheritdoc
-     */
-    public $controllerNamespace = 'dashboard\modules\statistics\controllers';
-
     /**
      * @inheritdoc
      */

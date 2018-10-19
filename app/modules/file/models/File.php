@@ -6,7 +6,7 @@ use dashboard\modules\user\models\User;
 use Yii;
 
 
-class File extends \common\models\File
+class File extends \app\modules\file\models\base\File
 {
     public $myfile;
 
@@ -22,9 +22,9 @@ class File extends \common\models\File
      */
     public function rules()
     {
-        return [
-            [['myfile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'gif, png, jpg, pdf, doc, docx, xls, xlsx, ppt, pptx, txt, zip, rar, flv, avi, wmv, mp4, mpg, 3gp, mkv, mp3, ogg', 'maxFiles' => 4, 'maxSize' => ((int)ini_get('upload_max_filesize')) * pow(1024,2)],
-        ];
+        $parentRules = parent::rules();
+        $parentRules[] = [['myfile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'gif, png, jpg, pdf, doc, docx, xls, xlsx, ppt, pptx, txt, zip, rar, flv, avi, wmv, mp4, mpg, 3gp, mkv, mp3, ogg', 'maxFiles' => 4, 'maxSize' => ((int)ini_get('upload_max_filesize')) * pow(1024,2)];
+        return $parentRules;
     }
 
     /**
