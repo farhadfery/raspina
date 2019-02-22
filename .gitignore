@@ -22,10 +22,12 @@ Thumbs.db
 # assets
 /frontend/web/assets
 /dashboard/web/assets
+/app/web/assets
 
 # runtime
 /frontend/runtime
 /dashboard/runtime
+/app/runtime
 
 # cubrid install dir
 /cubrid

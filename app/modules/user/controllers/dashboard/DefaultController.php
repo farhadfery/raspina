@@ -3,15 +3,12 @@
 namespace app\modules\user\controllers\dashboard;
 
 use app\modules\user\models\User;
-use app\modules\user\models\PasswordResetRequestForm;
-use app\modules\user\models\ResetPasswordForm;
 use app\modules\file\models\File;
 use app\modules\post\models\Comment;
 use app\modules\post\models\Post;
 use app\modules\user\models\AuthAssignment;
-use app\modules\user\models\dashboard\LoginForm;
+use app\modules\user\models\LoginForm;
 use Yii;
-use yii\base\Controller;
 use yii\base\InvalidParamException;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
