@@ -20,7 +20,7 @@ use yii\filters\VerbFilter;
 /**
  * DefaultController implements the CRUD actions for User model.
  */
-class DefaultController extends \common\components\Controller
+class DefaultController extends \app\components\Controller
 {
     /**
      * @inheritdoc
@@ -272,7 +272,7 @@ class DefaultController extends \common\components\Controller
         $model = new LoginForm();
         $model->scenario = 'user-login';
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            $visitor = new\common\models\Visitors;
+            $visitor = new\app\modules\statistics\models\Visitors;
             $visitor->delete();
 
             return $this->goHome();

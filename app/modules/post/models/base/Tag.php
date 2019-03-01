@@ -13,7 +13,7 @@ use yii\base\Theme;
  *
  * @property PostTag[] $postTags
  */
-class Tag extends \common\components\Model
+class Tag extends \app\components\Model
 {
     /**
      * @inheritdoc

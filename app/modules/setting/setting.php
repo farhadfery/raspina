@@ -5,7 +5,7 @@ namespace app\modules\setting;
 /**
  * setting module definition class
  */
-class setting extends \common\components\Module
+class setting extends \app\components\Module
 {
     /**
      * @inheritdoc

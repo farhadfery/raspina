@@ -13,7 +13,7 @@ use yii\filters\AccessControl;
 /**
  * Default controller for the `file` module
  */
-class DefaultController extends \common\components\Controller
+class DefaultController extends \app\components\Controller
 {
     public function behaviors()
     {

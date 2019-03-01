@@ -1,5 +1,5 @@
 <?php
-namespace common\components\date;
+namespace app\components\date;
 
 class Formatter extends \yii\i18n\Formatter
 {

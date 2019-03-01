@@ -1,5 +1,5 @@
 <?php
-namespace common\components;
+namespace app\components;
 
 use Yii;
 use yii\base\Component;

@@ -13,7 +13,7 @@ use yii\filters\VerbFilter;
 /**
  * DefaultController implements the CRUD actions for Setting model.
  */
-class DefaultController extends \common\components\Controller
+class DefaultController extends \app\components\Controller
 {
     public function behaviors()
     {

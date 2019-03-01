@@ -1,11 +1,11 @@
 <?php
 namespace app\modules\home\controllers\dashboard;
 
-use common\models\Visitors;
+use app\modules\statistics\models\Visitors;
 use dashboard\modules\user\models\user;
 use Yii;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
+use app\components\Controller;
 use dashboard\modules\post\models\Post;
 use yii\filters\VerbFilter;
 

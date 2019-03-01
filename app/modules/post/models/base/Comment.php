@@ -24,7 +24,7 @@ use Yii;
  * @property User $updatedBy
  * @property Post $post
  */
-class Comment extends \common\components\Model
+class Comment extends \app\components\Model
 {
     /**
      * @inheritdoc

@@ -5,7 +5,7 @@ namespace app\modules\newsletter;
 /**
  * newsletter module definition class
  */
-class newsletter extends \common\components\Module
+class newsletter extends \app\components\Module
 {
     /**
      * @inheritdoc

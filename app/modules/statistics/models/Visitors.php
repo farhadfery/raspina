@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace app\modules\statistics\models;
 
 use Yii;
 
@@ -17,7 +17,7 @@ use Yii;
  * @property string $referer
  * @property string $user_agent
  */
-class Visitors extends \yii\db\ActiveRecord
+class Visitors extends \app\components\Model
 {
     /**
      * @inheritdoc

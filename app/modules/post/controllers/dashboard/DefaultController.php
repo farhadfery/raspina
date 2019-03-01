@@ -12,7 +12,7 @@ use yii\filters\AccessControl;
 /**
  * Default controller for the `posts` module
  */
-class DefaultController extends \common\components\Controller
+class DefaultController extends \app\components\Controller
 {
 
     public function behaviors()

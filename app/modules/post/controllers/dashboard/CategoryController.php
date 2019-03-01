@@ -12,7 +12,7 @@ use yii\filters\AccessControl;
 /**
  * CategoryController implements the CRUD actions for Category model.
  */
-class CategoryController extends \common\components\Controller
+class CategoryController extends \app\components\Controller
 {
     public function behaviors()
     {

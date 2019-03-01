@@ -4,8 +4,8 @@ use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
-use common\widgets\Alert;
-use dashboard\modules\contact\models\Contact;
+use app\components\widgets\Alert;
+use app\modules\contact\models\Contact;
 
 DashboardAsset::register($this);
 
@@ -62,7 +62,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                 <ul class="dropdown-menu dropdown-menu-right raspina-menu">
 
                     <?php if (Yii::$app->user->can('post')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/post">
+                        <li><a href="<?= Url::base(); ?>/post">
                                 <div><span class="fa fa-file-text"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Posts') ?></div>
                             </a>
@@ -70,7 +70,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                     <?php endif; ?>
 
                     <?php if (Yii::$app->user->can('category')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/post/category/index">
+                        <li><a href="<?= Url::base(); ?>/post/category/index">
                                 <div><span class="fa fa-book"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Categories') ?></div>
                             </a>
@@ -78,7 +78,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                     <?php endif; ?>
 
                     <?php if (Yii::$app->user->can('file')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/file">
+                        <li><a href="<?= Url::base(); ?>/file">
                                 <div><span class="fa fa-upload"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Files') ?></div>
                             </a>
@@ -86,7 +86,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                     <?php endif; ?>
 
                     <?php if (Yii::$app->user->can('newsletter')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/newsletter">
+                        <li><a href="<?= Url::base(); ?>/newsletter">
                                 <div><span class="fa fa-paper-plane"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Newsletter') ?></div>
                             </a>
@@ -94,7 +94,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                     <?php endif; ?>
 
                     <?php if (Yii::$app->user->can('link')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/link">
+                        <li><a href="<?= Url::base(); ?>/link">
                                 <div><span class="fa fa-link"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Links') ?></div>
                             </a>
@@ -102,7 +102,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                     <?php endif; ?>
 
                     <?php if (Yii::$app->user->can('statistics')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/statistics">
+                        <li><a href="<?= Url::base(); ?>/statistics">
                                 <div><span class="fa fa-line-chart"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Statistics') ?></div>
                             </a>
@@ -110,7 +110,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                     <?php endif; ?>
 
                     <?php if (Yii::$app->user->can('user')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/user">
+                        <li><a href="<?= Url::base(); ?>/user">
                                 <div><span class="fa fa-user"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Users') ?></div>
                             </a>
@@ -118,7 +118,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                     <?php endif; ?>
 
                     <?php if (Yii::$app->user->can('Template')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/template">
+                        <li><a href="<?= Url::base(); ?>/template">
                                 <div><span class="fa fa-file-code-o"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Template') ?></div>
                             </a>
@@ -126,7 +126,7 @@ $entity_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
                     <?php endif; ?>
 
                     <?php if (Yii::$app->user->can('settings')): ?>
-                        <li><a href="<?= Url::base(); ?>/dashboard/setting/default/update">
+                        <li><a href="<?= Url::base(); ?>/setting/default/update">
                                 <div><span class="fa fa-cog"></span></div>
                                 <div class="menu-title"><?= Yii::t('app', 'Settings') ?></div>
                             </a>

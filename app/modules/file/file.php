@@ -5,7 +5,7 @@ namespace app\modules\file;
 /**
  * file module definition class
  */
-class file extends \common\components\Module
+class file extends \app\components\Module
 {
     public function init()
     {

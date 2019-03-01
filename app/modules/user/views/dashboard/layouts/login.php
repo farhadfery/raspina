@@ -2,7 +2,7 @@
 use app\assets\DashboardAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use common\widgets\Alert;
+use app\components\widgets\Alert;
 
 DashboardAsset::register($this);
 

@@ -5,7 +5,7 @@ namespace app\modules\link;
 /**
  * link module definition class
  */
-class link extends \common\components\Module
+class link extends \app\components\Module
 {
     /**
      * @inheritdoc

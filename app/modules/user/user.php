@@ -5,7 +5,7 @@ namespace app\modules\user;
 /**
  * user module definition class
  */
-class user extends \common\components\Module
+class user extends \app\components\Module
 {
     /**
      * @inheritdoc

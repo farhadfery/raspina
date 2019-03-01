@@ -9,7 +9,7 @@ use yii\filters\AccessControl;
 /**
  * Default controller for the `statistics` module
  */
-class DefaultController extends \common\components\Controller
+class DefaultController extends \app\components\Controller
 {
     public function behaviors()
     {

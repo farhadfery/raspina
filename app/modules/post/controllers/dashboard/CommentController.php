@@ -12,7 +12,7 @@ use yii\filters\AccessControl;
 /**
  * CommentController implements the CRUD actions for Comment model.
  */
-class CommentController extends \common\components\Controller
+class CommentController extends \app\components\Controller
 {
     public function behaviors()
     {

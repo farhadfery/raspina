@@ -5,7 +5,7 @@ namespace app\modules\statistics;
 /**
  * statistics module definition class
  */
-class statistics extends \common\components\Module
+class statistics extends \app\components\Module
 {
     /**
      * @inheritdoc

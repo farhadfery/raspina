@@ -3,7 +3,7 @@ use dashboard\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
-use common\widgets\Alert;
+use app\components\widgets\Alert;
 ?>
 <div style="text-align: right; direction: rtl">
     <div style="background:#f5f5f5; width:100%; font-family: Tahoma; font-size: 12px; background-color: #f1f1f1; padding: 30px 0px 30px 0px;">

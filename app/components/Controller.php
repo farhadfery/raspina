@@ -1,5 +1,5 @@
 <?php
-namespace common\components;
+namespace app\components;
 
 class Controller extends \yii\web\Controller
 {

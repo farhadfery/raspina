@@ -3,9 +3,7 @@ namespace app\components\bootstrap;
 
 use app\models\Modules;
 use Yii;
-use yii\base\Application;
 use yii\base\BootstrapInterface;
-use yii\web\Request;
 
 class ModuleLoader implements BootstrapInterface
 {

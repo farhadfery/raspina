@@ -14,7 +14,7 @@ use Yii;
  * @property Post $post
  * @property Category $category
  */
-class PostCategory extends \common\components\Model
+class PostCategory extends \app\components\Model
 {
     /**
      * @inheritdoc

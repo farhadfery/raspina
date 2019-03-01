@@ -14,7 +14,7 @@ use Yii;
  * @property Post $post
  * @property Tag $tag
  */
-class PostTag extends \common\components\Model
+class PostTag extends \app\components\Model
 {
     /**
      * @inheritdoc

@@ -31,7 +31,7 @@ use yii\db\ActiveQuery;
  * @property PostCategory[] $postCategories
  * @property PostTag[] $postTags
  */
-class Post extends \common\components\Model
+class Post extends \app\components\Model
 {
     /**
      * @inheritdoc

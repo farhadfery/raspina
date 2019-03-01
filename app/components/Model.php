@@ -1,5 +1,5 @@
 <?php
-namespace common\components;
+namespace app\components;
 
 class Model extends \yii\db\ActiveRecord
 {

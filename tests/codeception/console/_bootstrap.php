@@ -6,7 +6,7 @@ defined('YII_APP_BASE_PATH') or define('YII_APP_BASE_PATH', dirname(dirname(dirn
 
 require_once(YII_APP_BASE_PATH . '/vendor/autoload.php');
 require_once(YII_APP_BASE_PATH . '/vendor/yiisoft/yii2/Yii.php');
-require_once(YII_APP_BASE_PATH . '/common/_config/bootstrap.php');
+require_once(YII_APP_BASE_PATH . '/common_tml/_config/bootstrap.php');
 require_once(YII_APP_BASE_PATH . '/console/config/bootstrap.php');
 
 // set correct script paths

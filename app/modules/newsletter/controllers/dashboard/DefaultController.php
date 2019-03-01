@@ -15,7 +15,7 @@ use yii\data\ActiveDataProvider;
 /**
  * NewsletterController implements the CRUD actions for Newsletter model.
  */
-class DefaultController extends \common\components\Controller
+class DefaultController extends \app\components\Controller
 {
 
     public function behaviors()
