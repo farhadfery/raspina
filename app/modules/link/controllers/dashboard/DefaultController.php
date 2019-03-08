@@ -1,7 +1,7 @@
 <?php
 namespace app\modules\link\controllers\dashboard;
 
-use common\models\Link;
+use app\modules\link\models\Link;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;

@@ -2,8 +2,8 @@
 
 namespace app\modules\statistics\controllers\dashboard;
 
-use common\models\Visitors;
 use app\modules\statistics\models\Statistics;
+use app\modules\statistics\models\Visitors;
 use yii\filters\AccessControl;
 
 /**
