@@ -33,55 +33,31 @@ $(document).ready(function(){
 
     if(modules_name == 'post' && (action_name == 'create' || action_name == 'update'))
     {
-        var post_id = entity_id;
-        setInterval(function(){
-            var pin_post = 0;
-            var enable_comments = 0;
+        var temp_post_title = localStorage.getItem("temp_post_title");
+        if(temp_post_title !== null)
+        {
+            $('#post-title').val(localStorage.getItem("temp_post_title"));
+        }
 
-            if(typeof $('#post-auto_save:checked').val() == 'undefined')
-            {
-                return false;
-            }
+        var temp_post_short_text = localStorage.getItem("temp_post_short_text");
+        if(temp_post_short_text !== null)
+        {
+            $('#post-short_text').val(localStorage.getItem("temp_post_short_text"));
+        }
 
-            if(typeof $('#post-pin_post:checked').val() != 'undefined')
-            {
-                pin_post = 1;
-            }
-            if(typeof $('#post-enable_comments:checked').val() != 'undefined')
-            {
-                enable_comments = 1;
-            }
+        var temp_post_more_text = localStorage.getItem("temp_post_more_text");
+        if(temp_post_more_text !== null)
+        {
+            $('#temp_post_more_text').val(localStorage.getItem("temp_post_more_text"));
+        }
+    }
 
-            var post_categories = $('#post-post_categories').val();
-            var tags = $('#post_tags').val();
-            var keywords = $('#post_keywords').val();
-            // console.log($('#post_keywords').val());
-            var url = base_url + '/post/default/auto-save';
-            var data = {
-                title: $('#post-title').val(),
-                short_text: tinymce.get('post-short_text').getContent(),
-                more_text: tinymce.get('post-more_text').getContent(),
-                meta_description: $('#post-meta_description').val(),
-                status: $('#post-status').val(),
-                minute: $('#post-minute').val(),
-                hour: $('#post-hour').val(),
-                date: $('#post-date').val(),
-                pin_post: pin_post,
-                enable_comments: enable_comments,
-                post_id: post_id
-            };
-
-            if(data['title'] != '' && data['short_text'] != '')
-            {
-                $.post(url,{Post: data,post_categories: post_categories,tags: tags,keywords: keywords},function(data){
-                    if(parseInt(data) >= 0)
-                    {
-                        post_id = data;
-                        $('#post-post_id').val(post_id);
-                    }
-                });
-            }
-        }, 10000);
+    if(modules_name == 'post' && (action_name == 'view'))
+    {
+        if($.urlParam('clear_local_storage') == 1)
+        {
+            clear_local_storage();
+        }
     }
 
     $('.upload-box-link').click(function(){
@@ -146,3 +122,55 @@ $(document).ready(function(){
     });
 
 });
+
+function done_typing(editor) {
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 2000;  //time in ms, 5 second for example
+    var $input = $('#myInput');
+
+    editor.on('keyup', function (e) {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+    });
+
+    editor.on('keydown', function (e) {
+        clearTimeout(typingTimer);
+    });
+
+//user is "finished typing," do something
+    function doneTyping () {
+        set_content_to_local_storage();
+    }
+}
+
+$('#post-title').change(function(){
+    set_content_to_local_storage();
+});
+
+function clear_local_storage() {
+    localStorage.removeItem("temp_post_title");
+    localStorage.removeItem("temp_post_short_text");
+    localStorage.removeItem("temp_post_more_text");
+}
+
+function set_content_to_local_storage() {
+    localStorage.setItem("temp_post_title", $('#post-title').val());
+    localStorage.setItem("temp_post_short_text", tinymce.get('post-short_text').getContent());
+    localStorage.setItem("temp_post_more_text", tinymce.get('post-more_text').getContent());
+
+    var text = $('.alert-info').html();
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    $('.alert-info').html(text.replace(/\((.*)\)/gm, '(' + time + ')'));
+}
+
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+
+    if(results == null)
+    {
+        return 0;
+    }
+
+    return results[1] || 0;
+}

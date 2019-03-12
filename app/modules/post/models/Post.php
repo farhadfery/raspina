@@ -1,7 +1,6 @@
 <?php
 namespace app\modules\post\models;
 use app\modules\post\models\base\PostTag;
-use common\models\Tag;
 use meysampg\intldate\IntlDateTrait;
 use Yii;
 use developit\slug\PesianSluggableBehavior;

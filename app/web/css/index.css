@@ -28,7 +28,7 @@
 html, body {
     font-family: Sahel, sans-serif;
     font-size: 12px;
-    background-color: #fafbfd;
+    background-color: #E5EBEC;
     color: #333333;
     /*direction: rtl;*/
     /*text-align: right;*/
@@ -139,30 +139,39 @@ html, body {
 }
 
 .pen {
-    background-color: #f0ac3f;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 999999;
+    width: 100%;
+    height: 36px;
+    border-radius: 2px !important;
     cursor: pointer;
-    direction: rtl;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none !important;
+    padding: 0px !important;
+    float: none !important;
+    display: block !important;
 }
 
 .pen:hover {
-    background-color: #eba431;
+    background-color: #61a2d7;
     transition: all 0.2s ease;
+    border: none !important;
 }
 
 .pen img{
-    width: 34px;
-    margin: 8px 8px 0px 0px;
+    float: right;
+    width: 24px;
+    margin: 5px 10px 0px 0px;
+}
+
+.pen div{
+    float: right;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 7px 0px 30px;
 }
 
 .main-content {
-    width: 100%;
+    /*width: 100%;*/
     margin-top: 20px;
 }
 
@@ -607,6 +616,21 @@ caption, th, td {
     font-weight: normal;
 }
 
+.base-container {background-color: #333333; width:100%;}
+.main-container {float: left; padding: 0px; background-color: #F7F7F7}
+.menu-container {background-color: #E6EBED; height: 100%; position: absolute; padding: 0px;}
+.new-post {padding-right: 9%; padding-left: 9%;}
+.rs-profile-content {padding-right: 9%; padding-left: 9%; margin-top: 20px;}
+.rs-profile-image {float: right}
+.rs-profile-image img{width: 50px; border-radius: 50%; border: 3px solid #F1F3F5}
+.rs-profile-text {float: right; padding-top: 20px; font-weight: bold; padding-right: 7px;}
+
+.menu-item { margin: 0px;}
+.menu-item li{padding: 10px 0px 10px 0px !important; font-size: 12px; border-right: 4px solid #E9EEF0;  transition: all 0.1s ease;}
+.menu-item li a {color: #333333; text-decoration: none;}
+.menu-item li:hover{background-color: #E9EEF0; border-color: #4198D3}
+.menu-item-child span{padding: 0px 9% 0px 15px; font-size: 16px; float: right}
+.menu-item-child div{ margin-top: 4px;}
 /**
 @media ...
 */

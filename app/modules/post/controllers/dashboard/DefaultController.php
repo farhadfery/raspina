@@ -68,14 +68,6 @@ class DefaultController extends \app\components\Controller
         ]);
     }
 
-    protected function fillModel($model)
-    {
-        $request = Yii::$app->request->post();
-        $model->keywords = (isset($request['keywords']) && !empty($request['keywords'])) ? implode(',', $request['keywords']) : null;
-
-        return $model;
-    }
-
     /**
      * Creates a new Post model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -83,34 +75,22 @@ class DefaultController extends \app\components\Controller
      */
     public function actionCreate()
     {
+        Yii::$app->session->setFlash('info', Yii::t('app','Latest Auto Save: (date)'));
         $request = Yii::$app->request->post();
-        if(isset($request['Post']['post_id']) && !empty($request['Post']['post_id']))
-        {
-            $model = $this->findModel($request['Post']['post_id']);
-            if(!Yii::$app->user->can('updatePost', ['model' => $model]))
-            {
-                throw new ForbiddenHttpException(Yii::t('yii', 'You are not allowed to perform this action.'));
-            }
-        }
-        else
-        {
-            $model = new Post;
-        }
 
+        $model = new Post;
         $model->enable_comments = 1;
         $model->status = 1;
 
-
-
         if ($model->load($request) && $model->validate())
         {
-            $model = $this->fillModel($model);
+            $model->keywords = (isset($request['keywords']) && !empty($request['keywords'])) ? implode(',', $request['keywords']) : null;
             if($model->save())
             {
                 Yii::$app->session->setFlash('success', Yii::t('app','{object} created.',[
                     'object' => Yii::t('app','Post')
                 ]));
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id, 'clear_local_storage' => true]);
             }
         }
 
@@ -137,52 +117,19 @@ class DefaultController extends \app\components\Controller
         $request = Yii::$app->request->post();
         if ($model->load($request) && $model->validate())
         {
-            $model = $this->fillModel($model);
+            $model->keywords = (isset($request['keywords']) && !empty($request['keywords'])) ? implode(',', $request['keywords']) : null;
             if($model->save())
             {
                 Yii::$app->session->setFlash('success', Yii::t('app','{object} updated.',[
                     'object' => Yii::t('app','Post')
                 ]));
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id, 'clear_local_storage' => true]);
             }
-
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
-
-    public function actionAutoSave()
-    {
-        if(!Yii::$app->request->isAjax)
-        {
-            return false;
-        }
-
-        $model = new Post();
-        $post_id = null;
-        $request = Yii::$app->request->post();
-        if(isset($request['Post']['post_id']) && $request['Post']['post_id'] != '')
-        {
-            $post_id = $request['Post']['post_id'];
-            $model = $this->findModel((int)$post_id);
-        }
-
-        if ($model->load($request) && $model->validate())
-        {
-            $model = $this->fillModel($model);
-
-            if($model->status == 1)
-            {
-                $model->status = 0;
-            }
-
-            if($model->save())
-            {
-                return $model->id;
-            }
-        }
     }
 
     /**

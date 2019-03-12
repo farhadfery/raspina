@@ -2,7 +2,6 @@
 
 namespace app\modules\file\models;
 
-use dashboard\modules\user\models\User;
 use Yii;
 
 
@@ -38,7 +37,7 @@ class File extends \app\modules\file\models\base\File
     public function upload()
     {
         $files_detail = [];
-        if ($this->validate()) {
+        if (!empty($this->myfile)) {
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             foreach ($this->myfile as $file)
             {

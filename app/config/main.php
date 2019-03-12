@@ -129,9 +129,9 @@ return [
     ],
     'aliases' => [
         '@user_avatar' => '@app/files/avatar',
-//        '@file_upload' => '@app/files/upload',
-//        '@template' => 'templates',
-//        '@templateUrl' => 'frontend/views/templates',
+        '@file_upload' => '@app/files/upload',
+        '@template' => 'templates',
+        '@templateUrl' => 'frontend/views/templates',
 //        'templatePath' => '@frontend/views/templates',
     ],
     'params' => [],

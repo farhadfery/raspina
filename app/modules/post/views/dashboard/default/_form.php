@@ -8,13 +8,9 @@ use dosamigos\tinymce\TinyMce;
 use kartik\select2\Select2;
 use yii\helpers\Url;
 
-/* @var $this yii\web\View */
-/* @var $model dashboard\modules\post\models\Post */
 ?>
-
 <?= Html::beginPanel($this->title) ?>
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'auto_save')->checkbox(); ?>
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <?= Select2::widget([
         'name' => 'post_categories',
@@ -33,6 +29,7 @@ use yii\helpers\Url;
         'options' => ['rows' => 20],
         'language' =>  Yii::$app->params['lang'],
         'clientOptions' => [
+            'init_instance_callback' => 'done_typing',
             'content_css' => Url::to(['/web/css/tinymce.css']),
             'directionality' => Yii::$app->params['direction'],
             'entity_encoding' => "utf-8",
@@ -55,6 +52,7 @@ use yii\helpers\Url;
             'options' => ['rows' => 20, 'dir' => Yii::$app->params['direction']],
             'language' => Yii::$app->params['lang'],
             'clientOptions' => [
+                'init_instance_callback' => 'done_typing',
                 'directionality' => Yii::$app->params['direction'],
                 'content_css' => Url::to(['/web/css/tinymce.css']),
                 'relative_urls' => false,

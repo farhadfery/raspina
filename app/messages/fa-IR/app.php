@@ -187,4 +187,6 @@ return [
     'Related' => 'مرتبط ها',
     'New Password Was Saved' => 'کلمه عبور جدید ذخیره شد',
     'Unsubscribe Newsletter' => 'لغو عضویت خبرنامه',
+    'Latest Auto Save: (date)' => 'آخرین ذخیره خودکار: (date)',
+    'New Post' => 'مطلب جدید'
 ];
