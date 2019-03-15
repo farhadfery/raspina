@@ -114,7 +114,7 @@ class User extends \app\modules\user\models\base\User implements IdentityInterfa
 
     public static function getAvatar($userId)
     {
-        $baseUrl = Yii::$app->setting->getValue('url') . 'common/files/avatar/';
+        $baseUrl = Yii::$app->setting->getValue('url') . 'app/files/avatar/';
         $avatarPath = Yii::getAlias('@user_avatar') . DIRECTORY_SEPARATOR . Yii::$app->hashids->encode($userId) . '.jpg';
 
         if(file_exists($avatarPath))
@@ -123,7 +123,7 @@ class User extends \app\modules\user\models\base\User implements IdentityInterfa
         }
         else
         {
-            return $baseUrl . 'default.jpg';
+            return $baseUrl . 'default.png';
         }
     }
 }

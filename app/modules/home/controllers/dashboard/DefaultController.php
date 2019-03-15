@@ -1,12 +1,13 @@
 <?php
 namespace app\modules\home\controllers\dashboard;
 
+use app\modules\file\models\File;
 use app\modules\statistics\models\Visitors;
-use dashboard\modules\user\models\user;
+use app\modules\user\models\User;
 use Yii;
 use yii\data\ActiveDataProvider;
 use app\components\Controller;
-use dashboard\modules\post\models\Post;
+use app\modules\post\models\Post;
 use yii\filters\VerbFilter;
 
 /**
@@ -46,32 +47,32 @@ class DefaultController extends Controller
 //
         $visitors = new Visitors;
 //
-//        $posts = new Post;
-//        $postsDataProvider = new ActiveDataProvider([
-//            'query' => $posts->find()->where("view > 0")->orderBy('view DESC')->limit(10),
-//            'sort' => false,
-//            'pagination' => false
-//        ]);
-//
-//        $files = new File;
-//        $filePostsDataProvider = new ActiveDataProvider([
-//            'query' => $files->find()->where("download_count > 0")->orderBy('download_count DESC')->limit(10),
-//            'sort' => false,
-//            'pagination' => false
-//        ]);
-//
-//        $user = User::findIdentity(Yii::$app->user->id);
-//        $user->avatar = User::getAvatar(Yii::$app->user->id);
+        $posts = new Post();
+        $postsDataProvider = new ActiveDataProvider([
+            'query' => $posts->find()->where("view > 0")->orderBy('view DESC')->limit(10),
+            'sort' => false,
+            'pagination' => false
+        ]);
+
+        $files = new File();
+        $filePostsDataProvider = new ActiveDataProvider([
+            'query' => $files->find()->where("download_count > 0")->orderBy('download_count DESC')->limit(10),
+            'sort' => false,
+            'pagination' => false
+        ]);
+
+        $user = User::findIdentity(Yii::$app->user->id);
+        $user->avatar = User::getAvatar(Yii::$app->user->id);
 
         return $this->render('index',[
-//            'visitorsModel' => $visitors,
+            'visitorsModel' => $visitors,
             'visitors' => $visitors->find()->orderBy('id DESC')->limit(100)->all(),
             'chart' => $visitors->chart(),
-//            'post' => $postsDataProvider,
-//            'postModel' => $posts,
-//            'files' =>$filePostsDataProvider,
-//            'fileModel' => $files,
-//            'user' => $user,
+            'post' => $postsDataProvider,
+            'postModel' => $posts,
+            'files' =>$filePostsDataProvider,
+            'fileModel' => $files,
+            'user' => $user,
         ]);
     }
 }

@@ -121,6 +121,19 @@ $(document).ready(function(){
         $('.user-profile, .user-profile-big').attr('src', $('#user-avatar').val());
     });
 
+    $('#more-menu').click(function(){
+        $(".sm-menu").animate({height: '100%'}, 'slow', function(){
+            $(".menu-section-2").show();
+        });
+        $(".menu-section-1").hide();
+    });
+
+    $('.down-menu').click(function(){
+        $(".menu-section-2").hide();
+        $(".sm-menu").animate({height: '40px'}, 'slow', function(){
+            $(".menu-section-1").show();
+        });
+    });
 });
 
 function done_typing(editor) {

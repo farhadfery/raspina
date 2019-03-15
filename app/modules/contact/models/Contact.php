@@ -4,7 +4,7 @@ namespace app\modules\contact\models;
 
 use Yii;
 
-class Contact extends \common\models\Contact
+class Contact extends \app\modules\contact\models\base\Contact
 {
     public function getStatusList()
     {
