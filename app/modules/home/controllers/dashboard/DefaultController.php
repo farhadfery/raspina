@@ -1,14 +1,8 @@
 <?php
 namespace app\modules\home\controllers\dashboard;
 
-use app\modules\file\models\File;
 use app\modules\statistics\models\Visitors;
-use app\modules\user\models\User;
-use Yii;
-use yii\data\ActiveDataProvider;
 use app\components\Controller;
-use app\modules\post\models\Post;
-use yii\filters\VerbFilter;
 
 /**
  * Default controller for the `posts` module
@@ -18,61 +12,30 @@ class DefaultController extends Controller
 
     public function behaviors()
     {
-        return [
-//            'access' => [
-//                'class' => AccessControl::className(),
-//                'only' => ['index','create','update','delete','view'],
-//                'rules' => [
-//                    [
-//                        'actions' => ['index','create','update','delete','view'],
-//                        'allow' => true,
-//                        'roles' => ['author', 'moderator', 'admin'],
-//                    ]
-//                ],
-//            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ]
-        ];
+        return [];
     }
 
     public function actionIndex()
     {
-        # remove the clause ONLY_FULL_GROUP_BY
-//        $query = Yii::$app->getDb();
-//        $query->createCommand("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")->query();
-//
         $visitors = new Visitors;
-//
-        $posts = new Post();
-        $postsDataProvider = new ActiveDataProvider([
-            'query' => $posts->find()->where("view > 0")->orderBy('view DESC')->limit(10),
-            'sort' => false,
-            'pagination' => false
-        ]);
+        $lastVisitors = $visitors->find()
+            ->orderBy(['id' => SORT_DESC])
+            ->limit(100)
+            ->asArray()
+            ->all();
 
-        $files = new File();
-        $filePostsDataProvider = new ActiveDataProvider([
-            'query' => $files->find()->where("download_count > 0")->orderBy('download_count DESC')->limit(10),
-            'sort' => false,
-            'pagination' => false
-        ]);
-
-        $user = User::findIdentity(Yii::$app->user->id);
-        $user->avatar = User::getAvatar(Yii::$app->user->id);
+        $lastPageVisit = [];
+        foreach ($lastVisitors as $lv)
+        {
+            $location_hash = md5($lv['location']);
+            $lastPageVisit["{$lv['group_date']}-{$location_hash}"][] = $lv;
+        }
 
         return $this->render('index',[
             'visitorsModel' => $visitors,
-            'visitors' => $visitors->find()->orderBy('id DESC')->limit(100)->all(),
+            'visitors' => $lastVisitors,
+            'lastPageVisit' => $lastPageVisit,
             'chart' => $visitors->chart(),
-            'post' => $postsDataProvider,
-            'postModel' => $posts,
-            'files' =>$filePostsDataProvider,
-            'fileModel' => $files,
-            'user' => $user,
         ]);
     }
 }

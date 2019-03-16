@@ -106,6 +106,7 @@ return [
     'Visitors yesterday' => 'بازدید کننده دیروز',
     'IP' => 'IP',
     'Last hits' => 'آخرین بازدید ها',
+    'Last Page Visited' => 'آخرین صفحات بازدید شده',
     'OS' => 'سیستم عامل',
     'Browser' => 'مرورگر',
     'Browsers' => 'مرورگر',

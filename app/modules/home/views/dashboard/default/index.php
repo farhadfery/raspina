@@ -4,19 +4,19 @@ use yii\helpers\Url;
 use yii\grid\GridView;
 $this->title = Yii::t('app','Dashboard');
 
-$this->registerCssFile(Yii::$app->homeUrl . 'web/css/jquery.mCustomScrollbar.css');
+$this->registerCssFile(Yii::$app->homeUrl . 'app/web/css/jquery.mCustomScrollbar.css');
 
 $this->registerJsFile(
-    '@web/web/js/chart.bundle.min.js',
+    '@web/app/web/js/chart.bundle.min.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
 $this->registerJsFile(
-    '@web/web/js/jquery.mCustomScrollbar.concat.min.js',
+    '@web/app/web/js/jquery.mCustomScrollbar.concat.min.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
-$this->registerJsFile(Yii::$app->homeUrl . 'web/js/chart_config.js');
+$this->registerJsFile(Yii::$app->homeUrl . 'app/web/js/chart_config.js');
 ?>
 
 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
@@ -65,7 +65,7 @@ $this->registerJsFile(Yii::$app->homeUrl . 'web/js/chart_config.js');
 <div class="clear"></div>
 <div class="col-md-12">
     <div class="panel panel-default">
-        <div class="panel-heading"><?= Yii::t('app','Last hits') ?></div>
+        <div class="panel-heading"><?= Yii::t('app','Last Page Visited') ?></div>
         <div class="panel-body">
             <!-- -->
             <div class="last-visitors-lock">
@@ -74,6 +74,48 @@ $this->registerJsFile(Yii::$app->homeUrl . 'web/js/chart_config.js');
                 <span class="message"><?= Yii::t('app', 'Click To Unlock'); ?></span>
             </div>
             <div id="content-1" class="last-visitors">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th><?= Yii::t('app','Visit') ?></th>
+                        <th><?= Yii::t('app','Date') ?></th>
+                        <th class="last-visitors-default-col"><?= Yii::t('app','Location') ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $url = Yii::$app->setting->getValue('url');
+                    $i = 1;
+                    ?>
+                    <?php foreach ((array)$lastPageVisit as $v): ?>
+                        <tr>
+                            <td class="fit"><span class="label label-blue" style="padding: 2px 20px 0px 20px"><?= count($v); ?></span></td>
+                            <td class="fit ltr"><?= Yii::$app->date->asDateTime($v[0]['visit_date']); ?></td>
+                            <?php
+                            $locationTitle = $visitorsModel->getTitle($url, $v[0]['location']);
+                            ?>
+                            <td class="last-visitors-default-col"><a href="<?= $v[0]['location']; ?>" target="_blank" style="text-align: left; direction: rtl"><?= $locationTitle ?></a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- -->
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading"><?= Yii::t('app','Last hits') ?></div>
+        <div class="panel-body">
+            <!-- -->
+            <div class="last-visitors-lock">
+                <span class="fa fa-lock icon"></span>
+                <br>
+                <span class="message"><?= Yii::t('app', 'Click To Unlock'); ?></span>
+            </div>
+            <div id="content-2" class="last-visitors">
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
