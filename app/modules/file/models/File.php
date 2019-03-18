@@ -2,7 +2,9 @@
 
 namespace app\modules\file\models;
 
+use app\modules\user\models\User;
 use Yii;
+use yii\db\Query;
 
 
 class File extends \app\modules\file\models\base\File
@@ -56,7 +58,13 @@ class File extends \app\modules\file\models\base\File
                 }
 
             }
-            return $files_detail;
+
+            if(!empty($files_detail))
+            {
+                $connection = new Query();
+                $connection->createCommand()->batchInsert($this->tableName(),['name','extension','size','uploaded_by','real_name','content_type'],$files_detail)->execute();
+            }
+            return true;
         } else {
             return false;
         }

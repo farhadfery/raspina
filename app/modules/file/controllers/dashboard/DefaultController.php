@@ -4,7 +4,6 @@ namespace app\modules\file\controllers\dashboard;
 use app\modules\file\models\File;
 use app\modules\file\models\FileSearch;
 use Yii;
-use yii\db\Query;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -50,11 +49,9 @@ class DefaultController extends \app\components\Controller
 
         if (Yii::$app->request->isPost) {
             $model->myfile = UploadedFile::getInstances($model, 'myfile');
-            $uploadFiles = $model->upload();
-            if(!empty($uploadFiles))
+            $result = $model->upload();
+            if($result)
             {
-                $connection = new Query();
-                $connection->createCommand()->batchInsert($model->tableName(),['name','extension','size','uploaded_by','real_name','content_type'],$uploadFiles)->execute();
                 Yii::$app->session->setFlash('success', Yii::t('app','File uploaded.'));
             }
         }
