@@ -75,7 +75,6 @@ class DefaultController extends \app\components\Controller
      */
     public function actionCreate()
     {
-        Yii::$app->session->setFlash('info', Yii::t('app','Latest Auto Save: (date)'));
         $request = Yii::$app->request->post();
 
         $model = new Post;
@@ -84,7 +83,6 @@ class DefaultController extends \app\components\Controller
 
         if ($model->load($request) && $model->validate())
         {
-            $model->keywords = (isset($request['keywords']) && !empty($request['keywords'])) ? implode(',', $request['keywords']) : null;
             if($model->save())
             {
                 Yii::$app->session->setFlash('success', Yii::t('app','{object} created.',[
@@ -117,7 +115,6 @@ class DefaultController extends \app\components\Controller
         $request = Yii::$app->request->post();
         if ($model->load($request) && $model->validate())
         {
-            $model->keywords = (isset($request['keywords']) && !empty($request['keywords'])) ? implode(',', $request['keywords']) : null;
             if($model->save())
             {
                 Yii::$app->session->setFlash('success', Yii::t('app','{object} updated.',[

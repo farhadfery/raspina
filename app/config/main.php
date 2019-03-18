@@ -109,16 +109,16 @@ return [
                     'route' => 'site/captcha',
                 ],
                 [
+                    'pattern' => '<app>/<module>/<controller>',
+                    'route' => '<module>/<controller>',
+                ],
+                [
                     'pattern' => '<app>/<module>',
                     'route' => '<module>',
                 ],
                 [
                     'pattern' => '<app>/<module>/<action>',
                     'route' => '<module>/default/<action>',
-                ],
-                [
-                    'pattern' => '<app>/<module>/<controller>',
-                    'route' => '<module>/<controller>',
                 ],
                 [
                     'pattern' => '<app>/<module>/<controller>/<action>',

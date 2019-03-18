@@ -15,6 +15,7 @@ return [
     'Post' => 'مطلب',
     'Post count' => 'تعداد مطالب',
     'Post views' => 'بازدید از مطالب',
+    'Get Auto Saved Text' => 'دریافت متون ذخیره شده',
     'Create' => 'افزودن',
     'Update' => 'بروزرسانی',
     '{object} created.' => '{object} ایجاد شد.',

@@ -7,10 +7,11 @@ use app\modules\post\models\Tag;
 use dosamigos\tinymce\TinyMce;
 use kartik\select2\Select2;
 use yii\helpers\Url;
-
+//print_r($model); exit();
 ?>
-<?= Html::beginPanel($this->title) ?>
+<?= Html::beginPanel($this->title . Html::submitButton(Yii::t('app', 'Get Auto Saved Text'), ['class' => 'btn btn-primary auto-saved-btn'])) ?>
     <?php $form = ActiveForm::begin(); ?>
+
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <?= Select2::widget([
         'name' => 'post_categories',
@@ -83,7 +84,7 @@ use yii\helpers\Url;
     ]);
     ?>
     <?php
-        $keywords = $model->convertToAssociativeArray($model->keywords);
+        $keywords = $model->getSelectedKeywords();
         echo Select2::widget([
             'name' => 'keywords',
             'id' => 'post_keywords',
@@ -93,7 +94,6 @@ use yii\helpers\Url;
             'options' => ['multiple' => true, 'dir' => Yii::$app->params['direction'], 'placeholder' => Yii::t('app', 'Keywords')],
             'pluginOptions' => [
                 'tags' => true,
-                'tokenSeparators' => [','],
                 'maximumInputLength' => 100
             ],
         ]);
