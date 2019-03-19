@@ -45,8 +45,7 @@ class DefaultController extends \app\components\Controller
      * @return mixed
      */
     public function actionUpdate()
-    {
-        $model = new Setting;
+    {      
         $model = $model->find()->one();
 
         $request = Yii::$app->request->post();
