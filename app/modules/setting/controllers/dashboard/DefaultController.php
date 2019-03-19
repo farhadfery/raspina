@@ -59,7 +59,7 @@ class DefaultController extends \app\components\Controller
                 $model->url .= '/';
             }
 
-            $model->direction = $model->getLanguageDir($model->language);
+            $model->direction = $model->getLanguageDir($request->language);
 
             if($model->save())
             {
